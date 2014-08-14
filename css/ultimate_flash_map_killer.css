@@ -1,0 +1,103 @@
+/* 
+    Document   : Ultimate_Flash_Map_Killer
+    Created on : May 2012
+    Description:
+        This style sheet contains the css for Landmarks and tooltip
+*/
+
+
+.newLandMark
+{   
+    
+    padding: 0px;
+    margin: 5px;    
+    width: 400px;
+    height: auto;
+    
+}
+.newLandMark textarea{
+    width: 99%;    
+}
+.newLandMark input[type="button"]{
+    float: right;
+    color: #555;
+    padding:2px;
+    min-width: 50px; 
+    border: 1px solid #777;
+    background-color:whitesmoke;
+}
+.newLandMark input[type="button"]:hover{
+    background-color:silver;
+}
+.newLandMark span.headingLandMarkTitle{
+    font-size: 13px;
+    font-weight: bold;
+    color:#555;
+}
+.newLandMark span,label{
+    font-size: 11px;
+    color:#555;
+    
+}
+.newLandMark div.timeZoneSettings{
+    float: right;
+}
+.newLandMark div.timeZoneSettings input[type=text]{
+    width:30px;
+    font-size: 10px;
+}
+#lbMarkerLat,#lbMarkerLng,#imageUrl{
+    display: none;
+}
+#lbMarkerAddress{
+    width: 99%;
+}
+
+
+ .divCustomMarker{
+      position: absolute;
+      width : 100px;
+      height : 30px;
+      padding : 4px;
+      cursor : pointer;
+      background:#000;
+      color:white;
+      fontSize:11px;
+      text-align:center;
+      opacity:0.6;
+      filter: "alpha(opacity:60)";
+      -moz-border-radius:  25px 25px / 1px 25px;
+      
+      border-radius: 25px 25px / 1px 25px;
+ }
+ .divCustomMarkerTime{
+      -moz-border-radius : 25px 25px / 1px 25px;
+      border-radius : 25px 25px / 1px 25px;
+ }
+ 
+ #tt {
+ position:absolute;
+ display:block;
+ background:url(../images/tt_left.gif) top left no-repeat;
+ }
+ #tttop {
+ display:block;
+ height:5px;
+ margin-left:5px;
+ background:url(../images/tt_top.gif) top right no-repeat;
+ overflow:hidden;
+ }
+ #ttcont {
+ display:block;
+ padding:2px 12px 3px 7px;
+ margin-left:5px;
+ background:#666;
+ color:#fff;
+ }
+#ttbot {
+display:block;
+height:5px;
+margin-left:5px;
+background:url(../images/tt_bottom.gif) top right no-repeat;
+overflow:hidden;
+}

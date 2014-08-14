@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Ultimate Flash Map Killer</title>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/ultimate_flash_map_killer.js"></script>
+<link href="css/ultimate_flash_map_killer.css" rel="stylesheet" type="text/css"/>
+<link href="css/demo.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+var map; //Global Map object to perform multiple actions
+$(document).ready(function() {
+    
+    var poly=new Polygon();
+    var mapOptions = {
+    zoom: 2,
+    center:  new google.maps.LatLng(24.886436490787712,80.2685546875),
+    mapTypeId:"roadmap"
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        var landmark= new LandMark(map);
+    landmark.loadLandMarks();
+    poly.createPolygon(map, {
+                country: ["Iran (Islamic Republic of)","Spain", "Mexico", "Greenland"],
+                strokeColor:"#A52A2A",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#A52A2A",
+                fillOpacity:0.8,
+                hoverFillColor:"#FF0000",
+                hoverFillOpacity:0.1,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}}
+
+                });
+        poly.createPolygon(map, {
+                country: ["United Kingdom", "Ireland", "China"],
+                strokeColor:"#00008B",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#00008B",
+                fillOpacity:0.7,
+                hoverFillColor:"#00008B",
+                hoverFillOpacity:0.1,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}}
+
+                });
+        poly.createPolygon(map, {
+                country: ["France", "Poland", "Germany"],
+                strokeColor:"#000000",
+                strokeOpacity:0.5,
+                strokeWeight:1,
+                fillColor:"#FFFF00",
+                fillOpacity:0.4,
+                hoverFillColor:"#FFFF00",
+                hoverFillOpacity:0.1,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
+				toolTip:true,
+                toolTipText:"EU Giants"
+                });
+        poly.createPolygon(map, {
+                country: ["Norway", "Sweden","Finland"],
+                strokeColor:"#D2691E",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#000000",
+                fillOpacity:0.7,
+                hoverFillColor:"#D2691E",
+                hoverFillOpacity:0.3,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>Scandinavia</h3>",callback:function(){alert('test')}},
+				toolTip:true,
+                toolTipText:"Scandinavia"
+                });
+  poly.createPolygon(map, {
+                country: ["Russia"],
+                strokeColor:"#D2691E",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#D2691E",
+                fillOpacity:0.7,
+                hoverFillColor:"#000000",
+                hoverFillOpacity:0.3,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>Russia</h3>",callback:function(){alert('test')}},
+				toolTip:true,
+                toolTipText:"Russia"
+                });
+    poly.createPolygon(map, {
+                state: ["Texas","California","Florida", "North Dakota", "Alaska"],
+                strokeColor:"#FFA500",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#FFA500",
+                fillOpacity:0.6,
+                hoverFillColor:"#FFFF00",
+                hoverFillOpacity:0.2,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:1,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
+                toolTip:true,
+                toolTipText:"Support for Individual US States"
+
+                });
+                 poly.createPolygon(map, {
+                state: ["Washington"],
+                strokeColor:"#00008B",
+                strokeOpacity:0.1,
+                strokeWeight:2,
+                fillColor:"#00008B",
+                fillOpacity:0.6,
+                hoverFillColor:"#00008B",
+                hoverFillOpacity:0.2,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:1,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
+                toolTip:true,
+                toolTipText:"Washington"
+
+                });
+  poly.createPolygon(map, {
+                continent: [poly.Africa],
+                strokeColor:"#A0522D",
+                strokeOpacity:0,
+                strokeWeight:2,
+                fillColor:"#A0522D",
+                fillOpacity:0.7,
+                hoverFillColor:"#A0522D",
+                hoverFillOpacity:0.7,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:0,
+                hoverStrokeOpacity:0,
+                onClickType:3,
+                toolTip:true,
+                toolTipText:"Africa",
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('You just clicked a continent')}}
+
+                });                
+		poly.createPolygon(map, {
+                continent: [poly.SouthAmerica],
+                strokeColor:"#A0522D",
+                strokeOpacity:0,
+                strokeWeight:2,
+                fillColor:"#A0522D",
+                fillOpacity:0.7,
+                hoverFillColor:"#A0522D",
+                hoverFillOpacity:0.7,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:0,
+                hoverStrokeOpacity:0,
+                onClickType:3,
+                toolTip:true,
+                toolTipText:"South America",
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('You just clicked a continent')}}
+
+                }); 
+        poly.createPolygon(map, {
+                continent: [poly.Australia],
+                strokeColor:"#FF7F50",
+                strokeOpacity:0,
+                strokeWeight:2,
+                fillColor:"#FF7F50",
+                fillOpacity:0.7,
+                hoverFillColor:"#A0522D",
+                hoverFillOpacity:0.7,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:0,
+                hoverStrokeOpacity:0,
+                onClickType:3,
+                toolTip:true,
+                toolTipText:"Australia",
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('You just clicked a continent')}}
+                }); 
+});
+    function findMapAddress(e) {
+    if (e.keyCode==13)
+        {var geocoder = new google.maps.Geocoder();
+    var address = document.getElementById("txtMapSearch").value;
+    
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        map.setZoom(11);
+
+      } else {
+        alert("Location not found!");
+      }
+    });
+        }
+  }
+</script>
+</head>
+<body>
+    <div class="divToolbar">       
+        <div class="searchmap"> Search Map: <input onkeypress="findMapAddress(event)" type="text" id="txtMapSearch" /></div>
+    </div>
+   <div id="map_canvas"></div>	
+</body>
+</html>

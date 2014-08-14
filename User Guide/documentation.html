@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Google Maps with Clickable Countries</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Google Maps with Clickable Countries&rdquo; Documentation by &ldquo;Nyle M.&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Google Maps with Clickable Countries&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 10/10/2012<br>
+					By: Nyle M.<br>
+					Email: <a href="mailto:ultimateflashmapkiller@nylesphere.com">Nyle M</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my map. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/eddjusted">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">Installation</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#psdFiles">Landmarks and XML</a></li>
+			<li><a href="#credits">Regions Supported</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) Installation</strong> - <a href="#toc">top</a></h3>
+		<p>Copy all files to your webserver.</p>
+		<p>Include JS files:</p>
+		<p><strong>&lt;script type='text/javascript' src='https://www.google.com/jsapi'&gt;&lt;/script&gt;<br>
+		&lt;script type=&quot;text/javascript&quot; src=&quot;http://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;<br>
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;<br>
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/ultimate_flash_map_killer.js&quot;&gt;&lt;/script&gt;</strong></p>
+      <p>Include CSS files:</p>
+      <p><strong>&lt;link href=&quot;css/ultimate_flash_map_killer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;<br>
+      &lt;link href=&quot;css/demo.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</strong></p>
+      <p>Create a container for your map with search toolbar:</p>
+      <p> <strong>&lt;div class=&quot;divToolbar&quot;&gt; <br>
+&lt;div class=&quot;searchmap&quot;&gt; Search Map: &lt;input onkeypress=&quot;findMapAddress(event)&quot; type=&quot;text&quot; id=&quot;txtMapSearch&quot; /&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;div id=&quot;map_canvas&quot;&gt;&lt;/div&gt; </strong></p>
+      <p>Add Javascript code:</p>
+      <p> <strong>&lt;script type=&quot;text/javascript&quot;&gt;<br>
+      var map; //Global Map object to perform multiple actions<br>
+      $(document).ready(function() {<br>
+      <br>
+var poly=new Polygon();<br>
+var mapOptions = {<br>
+zoom: 2,<br>
+center:  new google.maps.LatLng(24.886436490787712,80.2685546875),<br>
+mapTypeId:&quot;roadmap&quot;<br>
+};<br>
+map = new google.maps.Map(document.getElementById(&quot;map_canvas&quot;), mapOptions);<br>
+var landmark= new LandMark(map);<br>
+landmark.loadLandMarks();<br>
+poly.createPolygon(map, {<br>
+country: [&quot;Iran (Islamic Republic of)&quot;,&quot;Spain&quot;, &quot;Mexico&quot;, &quot;Greenland&quot;],<br>
+strokeColor:&quot;#A52A2A&quot;,<br>
+strokeOpacity:0.1,<br>
+strokeWeight:2,<br>
+fillColor:&quot;#A52A2A&quot;,<br>
+fillOpacity:0.8,<br>
+hoverFillColor:&quot;#FF0000&quot;,<br>
+hoverFillOpacity:0.1,<br>
+hoverStrokeColor:&quot;#000&quot;,<br>
+hoverStrokeWeight:2,<br>
+hoverStrokeOpacity:0.5,<br>
+toolTip:true,<br>
+toolTipText:"Enter Tooltip Here",<br>
+onClickType:2,<br>
+onClickValue:{url:&quot;http://www.google.com&quot;,popup:&quot;&lt;h3&gt;HTML CODE HERE&lt;/h3&gt;&quot;,callback:function(){alert('test')}}</strong></p>
+      <p> <strong><br>
+      });<br>
+      function findMapAddress(e) {<br>
+      if (e.keyCode==13)<br>
+      {var geocoder = new google.maps.Geocoder();<br>
+      var address = document.getElementById(&quot;txtMapSearch&quot;).value;<br>
+  <br>
+      geocoder.geocode( { 'address': address}, function(results, status) {<br>
+      if (status == google.maps.GeocoderStatus.OK) {<br>
+      map.setCenter(results[0].geometry.location);<br>
+      map.setZoom(11);</strong></p>
+      <p><strong> } else {<br>
+      alert(&quot;Location not found!&quot;);<br>
+      }<br>
+      });<br>
+      }<br>
+      }</strong></p>
+      <p><strong>&lt;/script&gt;</strong></p>
+      <p>and you are done!!</p>
+      <p>&nbsp;</p> 
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>I'm using two CSS files for this map. The first one<strong> &quot;demo.css&quot;</strong> holds the settings for the map container and search toolbar. </p>
+		<p class="notice"> <strong>body {font:11px/1.5 Verdana, Arial, Helvetica, sans-serif;}<br>
+	    #map_canvas<br>
+	    {<br>
+width: 100%;<br>
+height: 600px;<br>
+<br>
+}<br>
+.divToolbar{<br>
+width: 98.5%;<br>
+height: 26px;<br>
+top: 0;<br>
+left: 0;<br>
+padding: 5px;<br>
+padding-left: 10px; <br>
+padding-right: 10px; <br>
+background-color: #444;<br>
+border-bottom: 2px solid whitesmoke; <br>
+}<br>
+.searchmap{<br>
+float:right;<br>
+color: white;<br>
+font-size: 12px;<br>
+}<br>
+.searchmap input{<br>
+width: 250px;<br>
+}</strong></p>
+		<p>The second is <strong>&quot;ultimate_flash_map_killer.css</strong>&quot;. This contains the styling for Landmarks and Tooltips.</p>
+		<p class="notice"><strong>.newLandMark<br>
+	    { <br>
+        <br>
+padding: 0px;<br>
+margin: 5px; <br>
+width: 400px;<br>
+height: auto;<br>
+<br>
+}<br>
+.newLandMark textarea{<br>
+width: 99%; <br>
+}<br>
+.newLandMark input[type=&quot;button&quot;]{<br>
+float: right;<br>
+color: #555;<br>
+padding:2px;<br>
+min-width: 50px; <br>
+border: 1px solid #777;<br>
+background-color:whitesmoke;<br>
+}<br>
+.newLandMark input[type=&quot;button&quot;]:hover{<br>
+background-color:silver;<br>
+}<br>
+.newLandMark span.headingLandMarkTitle{<br>
+font-size: 13px;<br>
+font-weight: bold;<br>
+color:#555;<br>
+}<br>
+.newLandMark span,label{<br>
+font-size: 11px;<br>
+color:#555;<br>
+<br>
+}<br>
+.newLandMark div.timeZoneSettings{<br>
+float: right;<br>
+}<br>
+.newLandMark div.timeZoneSettings input[type=text]{<br>
+width:30px;<br>
+font-size: 10px;<br>
+}<br>
+#lbMarkerLat,#lbMarkerLng,#imageUrl{<br>
+display: none;<br>
+}<br>
+#lbMarkerAddress{<br>
+width: 99%;<br>
+}</strong>	<br>	
+		<strong> .divCustomMarker{<br>
+		  position: absolute;<br>
+		  width : 100px;<br>
+		  height : 30px;<br>
+		  padding : 4px;<br>
+		  cursor : pointer;<br>
+		  background:#000;<br>
+		  color:white;<br>
+		  fontSize:11px;<br>
+		  text-align:center;<br>
+		  opacity:0.6;<br>
+		  filter: &quot;alpha(opacity:60)&quot;;<br>
+		  -moz-border-radius:  25px 25px / 1px 25px;<br>
+	    <br>
+		  border-radius: 25px 25px / 1px 25px;<br>
+		  }<br>
+		  .divCustomMarkerTime{<br>
+		  -moz-border-radius : 25px 25px / 1px 25px;<br>
+		  border-radius : 25px 25px / 1px 25px;<br>
+		  }<br>
+	    <br>
+		  #tt {<br>
+		  position:absolute;<br>
+		  display:block;<br>
+		  background:url(../images/tt_left.gif) top left no-repeat;<br>
+		  }<br>
+		  #tttop {<br>
+		  display:block;<br>
+		  height:5px;<br>
+		  margin-left:5px;<br>
+		  background:url(../images/tt_top.gif) top right no-repeat;<br>
+		  overflow:hidden;<br>
+		  }<br>
+		  #ttcont {<br>
+		  display:block;<br>
+		  padding:2px 12px 3px 7px;<br>
+		  margin-left:5px;<br>
+		  background:#666;<br>
+		  color:#fff;<br>
+		  }<br>
+		  #ttbot {<br>
+		  display:block;<br>
+		  height:5px;<br>
+		  margin-left:5px;<br>
+		  background:url(../images/tt_bottom.gif) top right no-repeat;<br>
+		  overflow:hidden;<br>
+		  }</strong> </p>
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This map imports the following Javascript files.</p>
+		
+	  <ol>
+			<li>jQuery</li>
+			<li>Google Api Loader and Google Maps API</li>
+			<li>ultimate_flash_map_killer.js</li>
+		</ol>
+		  
+		<ol>
+		  <li>jQuery is a Javascript library that greatly reduces the amount of code that you must write.</li>
+		  <li>The base map is served by Google Maps API so you can extend the map to any length the API supports. Options configured here are
+            <p>&nbsp;</p>
+            <p class="notice"><strong>var mapOptions = {<br>
+                 zoom: 2,<br>
+                 center:  new  google.maps.LatLng(24.886436490787712,80.2685546875),<br>
+                 mapTypeId:&quot;roadmap&quot;<br>
+    };</strong></p>
+          </li>
+		  <li>The custom script is kept inside ultimate_flash_map_killer.js, you won't need to manually edit anything in the file. The only necessary thing to know is how to call the method and the options available.
+            <p>&nbsp;</p>
+            <p class="notice"><strong><em>// Activate Landmarks </em><br>
+            var landmark= new LandMark(map);<br>
+            landmark.loadLandMarks();</strong></p>
+            <p class="notice"><em><strong>// Loading Country or Region Overlays</strong></em><strong><br>
+            poly.createPolygon(map, {<br>
+            country: [&quot;Iran (Islamic Republic of)&quot;,&quot;Spain&quot;, &quot;Mexico&quot;, &quot;Greenland&quot;],</strong></p>
+            <p>Note the  above set of parameters apply to a single polygon object or an array of  objects. These polygons are loaded in this line:<br>
+              country: [&quot;Saudi  Arabia&quot;,&quot;Spain&quot;, &quot;Mexico&quot;, &quot;Greenland&quot;],</p>
+            <p>You can use  any one of the following three options at one time with the above settings:</p>
+            <ol>
+              <li>country:  [&quot;Saudi Arabia&quot;,&quot;Spain&quot;, &quot;Mexico&quot;,  &quot;Greenland&quot;],</li>
+              <li>continent:  [poly.Australia]</li>
+              <li>state:  [&quot;Texas&quot;,&quot;California&quot;,&quot;Florida&quot;, &quot;North  Dakota&quot;, &quot;Alaska&quot;],</li>
+              <li>Country and States are supposed to be in quotes.  Continents should be entered without quotes. List of supported countries, US  states and continents is given ahead in this document. Names are case  sensitive.</li><br>
+            </ol>
+            <p class="notice"><strong><em><strong>// Configuring layer fill colors, borders or stroke colors, transparency. Colors are hex values supported by html. Opacity is between 0 and 1. </strong></em><br>
+            <em>// Configure similar settings for hover or mouse over effect</em></strong>         <br><strong>strokeColor:&quot;#A52A2A&quot;,<br>
+             strokeOpacity:0.1,<br>
+             strokeWeight:2,<br>
+             fillColor:&quot;#A52A2A&quot;,<br>
+             fillOpacity:0.8,<br>
+             hoverFillColor:&quot;#FF0000&quot;,<br>
+             hoverFillOpacity:0.1,<br>
+             hoverStrokeColor:&quot;#000&quot;,<br>
+             hoverStrokeWeight:2,<br>
+             hoverStrokeOpacity:0.5,</strong></p>
+            <p class="notice"><strong><em>//Enable or Disable tooltip</em><br>toolTip:true,<br>
+            toolTipText:&quot;Australia&quot;,<br>
+            <em>//Configure onClick functionality</em><br>
+             onClickType:2,<br>
+            onClickValue:{url:&quot;http://www.google.com&quot;,popup:&quot;&lt;h3&gt;HTML CODE HERE&lt;/h3&gt;&quot;,callback:function(){alert('test')}} </strong></p>
+            <p><strong>onClickType</strong> takes either 1 or 2 or 3 as value,  based on which the functionality is selected from <strong>onClickValue</strong><br>
+              1:          Go to URL defined in onClickValue:{url:&quot;http://www.google.com&quot; <br>
+              2:         Pop-Up  box containing text defined in popup:&quot;&lt;h3&gt;HTML CODE HERE&lt;/h3&gt;&quot;,<br>
+              3:         Javascript  callback as in callback:function(){       		  </p>
+		  </li>
+          
+		</ol>
+		
+		<hr>
+		
+		<h3 id="psdFiles"><strong>D) Landmarks and XML</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The map supports dynamic landmarks loaded from <strong>Landmarks.xml</strong> file. The structure is as follows:</p>
+		<p class="notice"><strong>&lt;LandMark  Lat=&quot;-33.873651&quot; Lng=&quot;151.20688960000007&quot;  LandMarkType=&quot;TIME&quot; Description=&quot;Sydney&quot; Address=&quot;1  George St, Sydney NSW 2000, Australia&quot; Offset=&quot;10&quot;  ImageUrl=&quot;images/redpin.png&quot;/&gt;</strong></p>
+		
+		<p>Specify the <strong>latitude </strong>and <strong>longitude </strong>position of the landmark. This is  essential.<br>
+	    Next set  the <strong>LandMarkType</strong> as either &ldquo;<strong>ICON</strong>&rdquo; to display an icon image defined in <strong>ImageUrl</strong> or &ldquo;<strong>TIME</strong>&rdquo; to display timezone with GMT offset defined in <strong>Offset</strong>.</p>
+<p>&nbsp;</p>
+		
+		<hr>
+		
+		<h3 id="credits"><strong>E) Regions Supported</strong> - <a href="#toc">top</a></h3>
+		
+		<p><strong>Continent Listing</strong>        
+		<p>You can  call the continents using object.continentName. Considering you have created a  polygon object by the name of &ldquo;poly&rdquo; in your code eg:                
+        <p>var poly=new Polygon();</p>
+        <p>then you&rsquo;ll  call each continent as below:</p>
+      <ol start="1" type="1">
+          <li>poly.Asia</li>
+          <li>poly.Africa</li>
+          <li>poly.Australia</li>
+          <li>poly.Europe</li>
+          <li>poly.NorthAmerica</li>
+          <li>poly.SouthAmerica</li>
+        </ol>
+        <p><strong>Country Listing</strong>
+        <ol>
+          <li>Afghanistan</li>
+          <li>Aland Islands</li>
+          <li>Albania</li>
+          <li>Algeria</li>
+          <li>American Samoa</li>
+          <li>Andorra</li>
+          <li>Angola</li>
+          <li>Anguilla</li>
+          <li>Antigua and Barbuda</li>
+          <li>Argentina</li>
+          <li>Armenia</li>
+          <li>Aruba</li>
+          <li>Australia</li>
+          <li>Austria</li>
+          <li>Azerbaijan</li>
+          <li>Bahamas</li>
+          <li>Bahrain</li>
+          <li>Bangladesh</li>
+          <li>Barbados</li>
+          <li>Belarus</li>
+          <li>Belgium</li>
+          <li>Belize</li>
+          <li>Benin</li>
+          <li>Bermuda</li>
+          <li>Bhutan</li>
+          <li>Bolivia</li>
+          <li>Bosnia and Herzegovina</li>
+          <li>Botswana</li>
+          <li>Bouvet Island</li>
+          <li>Brazil</li>
+          <li>British Indian Ocean Territory</li>
+          <li>British Virgin Islands</li>
+          <li>Brunei Darussalam</li>
+          <li>Bulgaria</li>
+          <li>Burkina Faso</li>
+          <li>Burma</li>
+          <li>Burundi</li>
+          <li>Cambodia</li>
+          <li>Cameroon</li>
+          <li>Canada</li>
+          <li>Cape Verde</li>
+          <li>Cayman Islands</li>
+          <li>Central African Republic</li>
+          <li>Chad</li>
+          <li>Chile</li>
+          <li>China</li>
+          <li>Christmas Island</li>
+          <li>Cocos (Keeling) Islands</li>
+          <li>Colombia</li>
+          <li>Comoros</li>
+          <li>Congo</li>
+          <li>Cook Islands</li>
+          <li>Costa Rica</li>
+          <li>Cote d'Ivoire</li>
+          <li>Croatia</li>
+          <li>Cuba</li>
+          <li>Cyprus</li>
+          <li>Czech Republic</li>
+          <li>Democratic Republic of the Congo</li>
+          <li>Denmark</li>
+          <li>Djibouti</li>
+          <li>Dominica</li>
+          <li>Dominican Republic</li>
+          <li>Ecuador</li>
+          <li>Egypt</li>
+          <li>El Salvador</li>
+          <li>Equatorial Guinea</li>
+          <li>Eritrea</li>
+          <li>Estonia</li>
+          <li>Ethiopia</li>
+          <li>Falkland Islands (Malvinas)</li>
+          <li>Faroe Islands</li>
+          <li>Fiji</li>
+          <li>Finland</li>
+          <li>France</li>
+          <li>French Guiana</li>
+          <li>French Polynesia</li>
+          <li>French Southern and Antarctic Lands</li>
+          <li>Gabon</li>
+          <li>Gambia</li>
+          <li>Georgia</li>
+          <li>Germany</li>
+          <li>Ghana</li>
+          <li>Gibraltar</li>
+          <li>Greece</li>
+          <li>Greenland</li>
+          <li>Grenada</li>
+          <li>Guadeloupe</li>
+          <li>Guam</li>
+          <li>Guatemala</li>
+          <li>Guernsey</li>
+          <li>Guinea</li>
+          <li>Guinea-Bissau</li>
+          <li>Guyana</li>
+          <li>Haiti</li>
+          <li>Heard Island and McDonald Islands</li>
+          <li>Holy See (Vatican City)</li>
+          <li>Honduras</li>
+          <li>Hong Kong</li>
+          <li>Hungary</li>
+          <li>Iceland</li>
+          <li>India</li>
+          <li>Indonesia</li>
+          <li>Iran (Islamic Republic of)</li>
+          <li>Iraq</li>
+          <li>Ireland</li>
+          <li>Isle of Man</li>
+          <li>Israel</li>
+          <li>Italy</li>
+          <li>Jamaica</li>
+          <li>Japan</li>
+          <li>Jersey</li>
+          <li>Jordan</li>
+          <li>Kazakhstan</li>
+          <li>Kenya</li>
+          <li>Kiribati</li>
+          <li>Korea, Democratic Peoples Republic Of</li>
+          <li>Korea, Republic of</li>
+          <li>Kuwait</li>
+          <li>Kyrgyzstan</li>
+          <li>Lao Peoples Democratic Republic</li>
+          <li>Latvia</li>
+          <li>Lebanon</li>
+          <li>Lesotho</li>
+          <li>Liberia</li>
+          <li>Libyan Arab Jamahiriya</li>
+          <li>Liechtenstein</li>
+          <li>Lithuania</li>
+          <li>Luxembourg</li>
+          <li>Macau</li>
+          <li>Madagascar</li>
+          <li>Malawi</li>
+          <li>Malaysia</li>
+          <li>Maldives</li>
+          <li>Mali</li>
+          <li>Malta</li>
+          <li>Marshall Islands</li>
+          <li>Martinique</li>
+          <li>Mauritania</li>
+          <li>Mauritius</li>
+          <li>Mayotte</li>
+          <li>Mexico</li>
+          <li>Micronesia, Federated States of</li>
+          <li>Monaco</li>
+          <li>Mongolia</li>
+          <li>Montenegro</li>
+          <li>Montserrat</li>
+          <li>Morocco</li>
+          <li>Mozambique</li>
+          <li>Namibia</li>
+          <li>Nauru</li>
+          <li>Nepal</li>
+          <li>Netherlands</li>
+          <li>Netherlands Antilles</li>
+          <li>New Caledonia</li>
+          <li>New Zealand</li>
+          <li>Nicaragua</li>
+          <li>Niger</li>
+          <li>Nigeria</li>
+          <li>Niue</li>
+          <li>Norfolk Island</li>
+          <li>Northern Mariana Islands</li>
+          <li>Norway</li>
+          <li>Oman</li>
+          <li>Pakistan</li>
+          <li>Palau</li>
+          <li>Palestine</li>
+          <li>Panama</li>
+          <li>Papua New Guinea</li>
+          <li>Paraguay</li>
+          <li>Peru</li>
+          <li>Philippines</li>
+          <li>Pitcairn Islands</li>
+          <li>Poland</li>
+          <li>Portugal</li>
+          <li>Puerto Rico</li>
+          <li>Qatar</li>
+          <li>Republic of Moldova</li>
+          <li>Reunion</li>
+          <li>Romania</li>
+          <li>Russia</li>
+          <li>Rwanda</li>
+          <li>Saint Barthelemy</li>
+          <li>Saint Helena</li>
+          <li>Saint Kitts and Nevis</li>
+          <li>Saint Lucia</li>
+          <li>Saint Martin</li>
+          <li>Saint Pierre and Miquelon</li>
+          <li>Saint Vincent and the Grenadines</li>
+          <li>Samoa</li>
+          <li>San Marino</li>
+          <li>Sao Tome and Principe</li>
+          <li>Saudi Arabia</li>
+          <li>Senegal</li>
+          <li>Serbia</li>
+          <li>Seychelles</li>
+          <li>Sierra Leone</li>
+          <li>Singapore</li>
+          <li>Slovakia</li>
+          <li>Slovenia</li>
+          <li>Solomon Islands</li>
+          <li>Somalia</li>
+          <li>South Africa</li>
+          <li>South Georgia South Sandwich Islands</li>
+          <li>Spain</li>
+          <li>Sri Lanka</li>
+          <li>Sudan</li>
+          <li>Suriname</li>
+          <li>Svalbard</li>
+          <li>Swaziland</li>
+          <li>Sweden</li>
+          <li>Switzerland</li>
+          <li>Syrian Arab Republic</li>
+          <li>Taiwan</li>
+          <li>Tajikistan</li>
+          <li>Thailand</li>
+          <li>The former Yugoslav Republic of Macedonia</li>
+          <li>Timor-Leste</li>
+          <li>Togo</li>
+          <li>Tokelau</li>
+          <li>Tonga</li>
+          <li>Trinidad and Tobago</li>
+          <li>Tunisia</li>
+          <li>Turkey</li>
+          <li>Turkmenistan</li>
+          <li>Turks and Caicos Islands</li>
+          <li>Tuvalu</li>
+          <li>Uganda</li>
+          <li>Ukraine</li>
+          <li>United Arab Emirates</li>
+          <li>United Kingdom</li>
+          <li>United Republic of Tanzania</li>
+          <li>United States</li>
+          <li>United States Minor Outlying Islands</li>
+          <li>United States Virgin Islands</li>
+          <li>Uruguay</li>
+          <li>Uzbekistan</li>
+          <li>Vanuatu</li>
+          <li>Venezuela</li>
+          <li>Viet Nam</li>
+          <li>Wallis and Futuna Islands</li>
+          <li>Western Sahara</li>
+          <li>Yemen</li>
+          <li>Zambia</li>
+          <li>Zimbabwe</li>
+        </ol>
+        <strong>US State Listing</strong>
+      <ol>
+          <li>Alabama</li>
+          <li>Alaska</li>
+          <li>Arizona</li>
+          <li>Arkansas</li>
+          <li>California</li>
+          <li>Colorado</li>
+          <li>Connecticut</li>
+          <li>Delaware</li>
+          <li>District of Columbia</li>
+          <li>Florida</li>
+          <li>Georgia</li>
+          <li>Hawaii</li>
+          <li>Idaho</li>
+          <li>Illinois</li>
+          <li>Indiana</li>
+          <li>Iowa</li>
+          <li>Kansas</li>
+          <li>Kentucky</li>
+          <li>Louisiana</li>
+          <li>Maine</li>
+          <li>Maryland</li>
+          <li>Massachusetts</li>
+          <li>Michigan</li>
+          <li>Minnesota</li>
+          <li>Mississippi</li>
+          <li>Missouri</li>
+          <li>Montana</li>
+          <li>Nebraska</li>
+          <li>Nevada</li>
+          <li>New Hampshire</li>
+          <li>New Jersey</li>
+          <li>New Mexico</li>
+          <li>New York</li>
+          <li>North Carolina</li>
+          <li>North Dakota</li>
+          <li>Ohio</li>
+          <li>Oklahoma</li>
+          <li>Oregon</li>
+          <li>Pennsylvania</li>
+          <li>Rhode Island</li>
+          <li>South Carolina</li>
+          <li>South Dakota</li>
+          <li>Tennessee</li>
+          <li>Texas</li>
+          <li>Utah</li>
+          <li>Vermont</li>
+          <li>Virginia</li>
+          <li>Washington</li>
+          <li>West Virginia</li>
+          <li>Wisconsin</li>
+          <li>Wyoming</li>
+      </ol>
+      <p>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this map. No guarantees, but I'll do my best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>Nyle M.</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
