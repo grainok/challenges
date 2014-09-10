@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://spreadsheets.google.com/feeds/list/1SKI5773_68HiSve1fsz7fr4gotjFWHB7KBuVsOlLz6I/od6/public/values?alt=json-in-script&callback=importGSS"></script>
+
+<script>
+
+alert("test");
+
+function loadJSON(path, success, error)
+{
+    alert("test3");
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                if (success)
+                    var data = JSON.parse(xhr.responseText);
+                    var example = "123";
+                    alert("data = "+data.meta.view.id);
+                    //alert(JSON.parse(xhr.responseText));
+                    //success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
+alert("test2");
+
+loadJSON('https://data.ny.gov/api/views/q6ts-kwhk/rows.json?accessType=DOWNLOAD',function(data){ console.log(data); },
+         function(xhr) { console.error(xhr);});
+
+</script>
+
+</head>
+
+<body>
+</body>
