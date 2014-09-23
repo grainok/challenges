@@ -24,7 +24,7 @@ $(document).ready(function() {
         var landmark= new LandMark(map);
     landmark.loadLandMarks();
         poly.createPolygon(map, {
-                country: ["Afghanistan",
+                country: [
                 "Algeria",
                 "Angola",
                 "Argentina",
@@ -181,6 +181,25 @@ $(document).ready(function() {
                 onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
 				toolTip:true,
                 toolTipText:"United States of America"
+                });
+                
+                // New Country
+                poly.createPolygon(map, {
+                country: ["Afghanistan"],
+                strokeColor:"#000000",
+                strokeOpacity:0.5,
+                strokeWeight:1,
+                fillColor:"#FFFF00",
+                fillOpacity:0.4,
+                hoverFillColor:"#FFFF00",
+                hoverFillOpacity:0.1,
+                hoverStrokeColor:"#000",
+                hoverStrokeWeight:2,
+                hoverStrokeOpacity:0.5,
+                onClickType:2,
+                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
+				toolTip:true,
+                toolTipText:"Afghanistan"
                 });
 
 });
