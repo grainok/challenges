@@ -142,6 +142,7 @@ $(document).ready(function() {
                 "Ukraine",
                 "United Arab Emirates",
                 "United Kingdom",
+                "United States",
                 "Uruguay",
                 "Venezuela",
                 "Viet Nam",
@@ -165,35 +166,7 @@ $(document).ready(function() {
                 toolTipText:"World"});
 });
 
-                // New Country
-                var poly=new Polygon();
-    var mapOptions = {
-    zoom: 2,
-    center:  new google.maps.LatLng(24.886436490787712,80.2685546875),
-    mapTypeId:"roadmap"
-    };
-    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-        var landmark= new LandMark(map);
-    landmark.loadLandMarks();
-        poly.createPolygon(map, {
-                country: ["United States"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"United States"
-                });
-
-
+        
     function findMapAddress(e) {
     if (e.keyCode==13)
         {var geocoder = new google.maps.Geocoder();
