@@ -23,9 +23,28 @@ $(document).ready(function() {
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         var landmark= new LandMark(map);
     landmark.loadLandMarks();
-    
         poly.createPolygon(map, {
-                country: [
+                country: ["Afghanistan","Algeria","Angola","Argentina","Australia","Austria","Azerbaijan","Bangladesh","Belgium","Benin","Bolivia","Bosnia and Herzegovina","Brazil","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Central African Republic",
+                "Chad","Chile","China","Colombia","Congo","Costa Rica","Cote d'Ivoire",
+                "Croatia",
+                "Cuba",
+                "Czech Republic",
+                "Democratic Republic of the Congo",
+                "Denmark",
+                "Dominican Republic",
+                "Ecuador",
+                "Egypt",
+                "El Salvador",
+                "Eritrea",
+                "Ethiopia",
+                "Faroe Islands",
+                "Finland",
+                "France",
+                "Georgia",
+                "Germany",
+                "Ghana",
+                "Greece",
+                "Guatemala",
                 "Guinea",
                 "Haiti",
                 "Honduras",
@@ -46,7 +65,6 @@ $(document).ready(function() {
                 "Korea, Republic of",
                 "Kuwait",
                 "Kyrgyzstan",
-                "Lao Peoples Democratic Republic",
                 "Lebanon",
                 "Liberia",
                 "Madagascar",
@@ -63,44 +81,89 @@ $(document).ready(function() {
                 "Nicaragua",
                 "Niger",
                 "Nigeria",
+                "Niue",
+                "Norfolk Island",
+                "Northern Mariana Islands",
                 "Norway",
                 "Oman",
                 "Pakistan",
+                "Palau",
+                "Palestine",
                 "Panama",
                 "Papua New Guinea",
                 "Paraguay",
                 "Peru",
                 "Philippines",
+                "Pitcairn Islands",
                 "Poland",
                 "Portugal",
+                "Puerto Rico",
+                "Qatar",
                 "Republic of Moldova",
+                "Reunion",
                 "Romania",
                 "Russia",
                 "Rwanda",
+                "Saint Barthelemy",
+                "Saint Helena",
+                "Saint Kitts and Nevis",
+                "Saint Lucia",
+                "Saint Martin",
+                "Saint Pierre and Miquelon",
+                "Saint Vincent and the Grenadines",
+                "Samoa",
+                "San Marino",
+                "Sao Tome and Principe",
                 "Saudi Arabia",
                 "Senegal",
                 "Serbia",
+                "Seychelles",
                 "Sierra Leone",
                 "Singapore",
                 "Slovakia",
+                "Slovenia",
+                "Solomon Islands",
                 "Somalia",
                 "South Africa",
+                "South Georgia South Sandwich Islands",
                 "Spain",
                 "Sri Lanka",
                 "Sudan",
+                "Suriname",
+                "Svalbard",
+                "Swaziland",
                 "Sweden",
                 "Switzerland",
+                "Syrian Arab Republic",
+                "Taiwan",
+                "Tajikistan",
                 "Thailand",
+                "The former Yugoslav Republic of Macedonia",
+                "Timor-Leste",
                 "Togo",
+                "Tokelau",
+                "Tonga",
+                "Trinidad and Tobago",
                 "Tunisia",
                 "Turkey",
+                "Turkmenistan",
+                "Turks and Caicos Islands",
+                "Tuvalu",
                 "Uganda",
                 "Ukraine",
                 "United Arab Emirates",
                 "United Kingdom",
+                "United Republic of Tanzania",
+                "United States",
+                "United States Minor Outlying Islands",
+                "United States Virgin Islands",
                 "Uruguay",
+                "Uzbekistan",
+                "Vanuatu",
                 "Venezuela",
                 "Viet Nam",
+                "Wallis and Futuna Islands",
+                "Western Sahara",
                 "Yemen",
                 "Zambia",
                 "Zimbabwe"
@@ -118,811 +181,10 @@ $(document).ready(function() {
                 onClickType:2,
                 onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
 				toolTip:true,
-                toolTipText:"World"});
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["United States"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"United States of America"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Afghanistan"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Afghanistan"
-                });
-                
-                 // New Country
-                poly.createPolygon(map, {
-                country: ["Algeria"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Algeria"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Angola"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Angola "
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Argentina"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Argentina"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Australia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Australia"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Austria"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Austria"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Azerbaijan"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Azerbaijan"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Bangladesh"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Bangladesh"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Belgium"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Belgium"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Benin"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Benin"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Bolivia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Bolivia"
-                });
-                
-                // New Country
-                poly.createPolygon(map, {
-                country: ["Bosnia and Herzegovina"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Bosnia and Herzegovina"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Brazil"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Brazil"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Bulgaria"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Bulgaria"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Burkina Faso"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Burkina Faso"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Burundi"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Burundi"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Cambodia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Cambodia"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Cameroon"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Cameroon"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Canada"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Canada"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Central African Republic"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Central African Republic"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Chad"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Chad"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Chile"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Chile"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["China"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"China"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["France"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"France"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Georgia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Georgia"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Germany"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Germany"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Ghana"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Ghana"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Greece"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Greece"
-                });
-                
-                // New Country
-		poly.createPolygon(map, {
-                country: ["Guatemala"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Guatemala"
+                toolTipText:"Europe"
                 });
 
-
-                // New Country
-poly.createPolygon(map, {
-                country: ["Colombia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Colombia"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Congo"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Congo"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Costa Rica"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Costa Rica"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Cote d'Ivoire"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Cote d'Ivoire(Ivory Coast)"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Croatia"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Croatia"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Cuba"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Cuba"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Czech Republic"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Democratic Republic of the Congo"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Democratic Republic of the Congo"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Denmark"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Dominican Republic"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Dominican Republic"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Ecuador"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Ecuador"
-                });
-                
-                // New Country
-poly.createPolygon(map, {
-                country: ["Egypt"],
-                strokeColor:"#000000",
-                strokeOpacity:0.5,
-                strokeWeight:1,
-                fillColor:"#FFFF00",
-                fillOpacity:0.4,
-                hoverFillColor:"#FFFF00",
-                hoverFillOpacity:0.1,
-                hoverStrokeColor:"#000",
-                hoverStrokeWeight:2,
-                hoverStrokeOpacity:0.5,
-                onClickType:2,
-                onClickValue:{url:"http://www.google.com",popup:"<h3>HTML CODE HERE</h3>",callback:function(){alert('test')}},
-				toolTip:true,
-                toolTipText:"Egypt"
-                });
-                
-                
 });
-
-        
     function findMapAddress(e) {
     if (e.keyCode==13)
         {var geocoder = new google.maps.Geocoder();
